@@ -10,7 +10,6 @@ import paho.mqtt.client as mqtt
 
 app = Flask(__name__)
 
-db_file = '../IoTMilestone1DB.db'
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
@@ -154,7 +153,7 @@ sensort.loop_start()
 
 
 
-
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8081, debug=True)
+print("yayaya")
+while True:
+    pass
 
