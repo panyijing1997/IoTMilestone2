@@ -4,11 +4,8 @@ import RPi.GPIO as GPIO
 import board
 import adafruit_dht
 import time
-from flask import Flask
-import sqlite3
 import paho.mqtt.client as mqtt
 
-app = Flask(__name__)
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)

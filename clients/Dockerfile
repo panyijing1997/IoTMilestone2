@@ -3,7 +3,6 @@ WORKDIR /clients
 RUN pip3 install --upgrade pip
 RUN pip3 install adafruit-circuitpython-dht
 RUN pip3 install paho-mqtt
-RUN pip3 install flask
 RUN pip3 install --upgrade --pre rpi.gpio
 
 COPY . .
