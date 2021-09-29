@@ -8,7 +8,8 @@ services:
       - "8080:8080"
     volumes:
       - ".:/server"
-
+    links:
+      - "mosquitto"
 
 
   clients:
@@ -16,7 +17,8 @@ services:
     privileged: true
     ports:
       - "8081:8081"
-
+    links:
+      - "mosquitto"
 
   mosquitto:
     image: mqtt
