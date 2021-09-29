@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  server:
+    build:
+      context: .
+    privileged: true
+    ports:
+      - "8080:8080"
+    volumes:
+      - ".:/server"
+    links:
+      - "clients"
+
+  clients:
+    image: clients
+    privileged: true
+    ports:
+      - "8081:8081"
