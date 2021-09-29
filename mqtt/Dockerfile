@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM eclipse-mosquitto
+FROM eclipse-mosquitto:latest
 WORKDIR /mosquitto
 COPY config config
 RUN mosquitto_passwd -c -b /mosquitto/config/pwfile ledc ledc

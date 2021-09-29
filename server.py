@@ -17,7 +17,7 @@ app.config['MQTT_BROKER_PORT'] = 1883
 app.config['MQTT_REFRESH_TIME'] = 1.0  # refresh time in seconds
 app.config['MQTT_KEEPALIVE'] = 5
 app.config['MQTT_TLS_ENABLED'] = False
-app.config['MQTT_CLEAN_SESSION'] = True
+app.config['MQTT_CLEAN_SESSION'] = False
 mqtt = Mqtt(app)
 
 
