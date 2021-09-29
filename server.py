@@ -3,12 +3,15 @@ import time
 import sqlite3
 from flask_mqtt import Mqtt
 import json
-
+import socket
 
 db_file = 'IoTMilestone1DB.db'
 
+hostname = socket.gethostname()
+local_ip = socket.gethostbyname(hostname)
+
 app = Flask(__name__)
-app.config['MQTT_BROKER_URL'] = 'mosquitto'
+app.config['MQTT_BROKER_URL'] = local_ip
 app.config['TEMPLATES_AUTO_RELOAD'] = False
 app.config['MQTT_BROKER_PORT'] = 1883
 app.config['MQTT_REFRESH_TIME'] = 1.0  # refresh time in seconds

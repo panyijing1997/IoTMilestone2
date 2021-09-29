@@ -5,7 +5,7 @@ import board
 import adafruit_dht
 import time
 import paho.mqtt.client as mqtt
-
+import socket
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -129,23 +129,27 @@ def on_message_sensord(client, userdata, message):
     }
     client.publish("queen/distance_store", json.dumps(templateData))
 
+hostname = socket.gethostname()
+local_ip = socket.gethostbyname(hostname)
+
+
 ledc = mqtt.Client()
 ledc.on_connect = on_connect_led
 ledc.on_message = on_message_led
-ledc.connect("mosquitto", 1883, 60)
+ledc.connect(local_ip, 1883, 60)
 ledc.loop_start()
 
 
 sensord=mqtt.Client()
 sensord.on_connect=on_connect_sensord
 sensord.on_message=on_message_sensord
-sensord.connect("mosquitto", 1883, 60)
+sensord.connect(local_ip, 1883, 60)
 sensord.loop_start()
 
 sensort=mqtt.Client()
 sensort.on_connect=on_connect_sensort
 sensort.on_message=on_message_sensort
-sensort.connect("mosquitto", 1883, 60)
+sensort.connect(local_ip, 1883, 60)
 sensort.loop_start()
 
 
