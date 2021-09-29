@@ -1,8 +1,7 @@
 # IoTMilestone2
 public broker still.
 Decoupled server codes and sensors/leds operation codes
-It works but has a few bugs: 
-- LED states are not right when the first time you open the LED state page, but it will get right after you turn on/off any LED.
+It works but has a few bugs:
 - Some messages seem to get published multiple times? e.g. from the distance historical data, you can see everytime you click the button to measure again, it actually measures twice and write the database twice.
 ## Set up
 
