@@ -8,7 +8,7 @@ import json
 db_file = 'IoTMilestone1DB.db'
 
 app = Flask(__name__)
-app.config['MQTT_BROKER_URL'] = 'broker.hivemq.com'
+app.config['MQTT_BROKER_URL'] = 'mosquitto'
 app.config['TEMPLATES_AUTO_RELOAD'] = False
 app.config['MQTT_BROKER_PORT'] = 1883
 app.config['MQTT_REFRESH_TIME'] = 1.0  # refresh time in seconds

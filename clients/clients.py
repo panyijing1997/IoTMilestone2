@@ -132,20 +132,20 @@ def on_message_sensord(client, userdata, message):
 ledc = mqtt.Client()
 ledc.on_connect = on_connect_led
 ledc.on_message = on_message_led
-ledc.connect("broker.hivemq.com", 1883, 60)
+ledc.connect("mosquitto", 1883, 60)
 ledc.loop_start()
 
 
 sensord=mqtt.Client()
 sensord.on_connect=on_connect_sensord
 sensord.on_message=on_message_sensord
-sensord.connect("broker.hivemq.com", 1883, 60)
+sensord.connect("mosquitto", 1883, 60)
 sensord.loop_start()
 
 sensort=mqtt.Client()
 sensort.on_connect=on_connect_sensort
 sensort.on_message=on_message_sensort
-sensort.connect("broker.hivemq.com", 1883, 60)
+sensort.connect("mosquitto", 1883, 60)
 sensort.loop_start()
 
 
