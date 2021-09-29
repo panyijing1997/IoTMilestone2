@@ -28,7 +28,7 @@ def handle_connect(client, userdata, flags, rc):
     mqtt.subscribe('queen/dht11_store')
     mqtt.subscribe('queen/dht11_error')
     mqtt.subscribe('queen/distance_store')
-    print("client on server connected")
+    print("client on server connected",flush=True)
 
 
 @mqtt.on_topic("queen/dht11_store") #read temp and humidity succeed, store the data to database

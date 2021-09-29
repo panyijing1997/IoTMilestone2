@@ -9,4 +9,4 @@ COPY . .
 
 
 EXPOSE 8081
-CMD [ "python3", "clients.py"]
+CMD [ "python3","-u", "clients.py"]
