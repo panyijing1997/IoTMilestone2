@@ -139,20 +139,20 @@ print(a)
 ledc = mqtt.Client()
 ledc.on_connect = on_connect_led
 ledc.on_message = on_message_led
-ledc.connect("172.20.0.2", 1883, 60)
+ledc.connect("localhost", 1883, 60)
 ledc.loop_start()
 
 
 sensord=mqtt.Client()
 sensord.on_connect=on_connect_sensord
 sensord.on_message=on_message_sensord
-sensord.connect("172.20.0.2", 1883, 60)
+sensord.connect("localhost", 1883, 60)
 sensord.loop_start()
 
 sensort=mqtt.Client()
 sensort.on_connect=on_connect_sensort
 sensort.on_message=on_message_sensort
-sensort.connect("172.20.0.2", 1883, 60)
+sensort.connect("localhost", 1883, 60)
 sensort.loop_start()
 
 
