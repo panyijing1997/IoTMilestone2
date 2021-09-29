@@ -35,9 +35,9 @@ def on_subscribe_led(client, userdata, mid, granted_qos):
 
 def on_connect_led(client, userdata, flags, rc):
     print(f"leds connected with result code {rc}")
-    client.subscribe("queen/led/action")
-    client.subscribe("check_led")
-    client.subscribe("test")
+    client.subscribe("queen/led/action",1)
+    client.subscribe("check_led",1)
+    client.subscribe("test",1)
 
 # when LED receives message of changing states
 def on_message_led(client, userdata, message):
