@@ -36,6 +36,7 @@ def on_connect_led(client, userdata, flags, rc):
 
 # when LED receives message of changing states
 def on_message_led(client, userdata, message):
+    print(f"led receivedd a message")
     if message.topic == "check_led":
         ledState_blue = GPIO.input(4)
         ledState_red = GPIO.input(2)
@@ -110,6 +111,7 @@ def on_connect_sensord(client, userdata, flags, rc):
     client.subscribe("queen/distance_check")
 
 def on_message_sensord(client, userdata, message):
+    print(f"distance sensor receivedd a message")
     GPIO.output(TRIG, True)
     time.sleep(0.00001)
     GPIO.output(TRIG, False)

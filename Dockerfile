@@ -9,5 +9,5 @@ COPY . .
 
 
 EXPOSE 8080
-CMD [ "python3", "server.py"]
+CMD [ "python3","-u", "server.py"]
 
