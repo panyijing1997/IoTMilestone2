@@ -130,7 +130,8 @@ def on_message_sensord(client, userdata, message):
     client.publish("queen/distance_store", json.dumps(templateData))
 
 hostname = socket.gethostname()
-local_ip = socket.gethostbyname(hostname)
+print(hostname)
+local_ip = socket.gethostbyname("localhost")
 print(local_ip)
 a=socket.gethostbyname("mosquitto")
 print(a)
