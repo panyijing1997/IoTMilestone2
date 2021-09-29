@@ -131,7 +131,9 @@ def on_message_sensord(client, userdata, message):
 
 hostname = socket.gethostname()
 local_ip = socket.gethostbyname(hostname)
-
+print(local_ip)
+a=socket.gethostbyname("mosquitto")
+print(a)
 
 ledc = mqtt.Client()
 ledc.on_connect = on_connect_led
