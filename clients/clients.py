@@ -29,10 +29,15 @@ GPIO.setup(ECHO, GPIO.IN)
 """
 mqtt functions for server
 """
+def on_subscribe_led(client, userdata, mid, granted_qos):
+    print("led subscribed")
+    print(granted_qos)
+
 def on_connect_led(client, userdata, flags, rc):
     print(f"leds connected with result code {rc}")
     client.subscribe("queen/led/action")
     client.subscribe("check_led")
+    client.subscribe("test")
 
 # when LED receives message of changing states
 def on_message_led(client, userdata, message):
@@ -136,7 +141,8 @@ def on_message_sensord(client, userdata, message):
 ledc = mqtt.Client()
 ledc.on_connect = on_connect_led
 ledc.on_message = on_message_led
-ledc.connect("broker.hivemq.com", 1883, 200)
+ledc.on_subscribe=on_subscribe_led
+ledc.connect("mosquitto", 1883, 200)
 ledc.loop_start()
 
 
@@ -151,6 +157,9 @@ sensort.on_connect=on_connect_sensort
 sensort.on_message=on_message_sensort
 sensort.connect("broker.hivemq.com", 1883, 200)
 sensort.loop_start()
+
+ledc.publish("test","messageyayaaaaaaa")
+
 
 
 
