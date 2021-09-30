@@ -52,7 +52,7 @@ def on_message_led(client, userdata, message):
             'led_green': ledState_green,
         }
         client.publish("queen/led/state", json.dumps(ledState),retain=True)
-    else:
+    elif message.topic == "queen/led/action":
         msg=str(message.payload.decode("utf-8"))
         msg=json.loads(msg)
         print(msg)
@@ -82,6 +82,8 @@ def on_message_led(client, userdata, message):
             'led_green': ledState_green,
         }
         client.publish("queen/led/state",json.dumps(ledState))
+    else:
+        print(str(message.payload.decode("utf-8")))
 
 def on_connect_sensort(client, userdata, flags, rc):
     print(f"dht11 client Connected with result code {rc}")
@@ -159,7 +161,7 @@ sensort.connect("mosquitto", 1883, 200)
 sensort.loop_start()
 
 
-
+ledc.publish("test","dadfasdfasdf")
 
 
 print("yayaya")
