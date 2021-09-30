@@ -1,8 +1,5 @@
 # IoTMilestone2
-public broker still.
-Decoupled server codes and sensors/leds operation codes
-It works but has a few bugs:
-- Some messages seem to get published multiple times? e.g. from the distance historical data, you can see everytime you click the button to measure again, it actually measures twice and write the database twice.
+use mosquitto as broker (local docker image)
 ## Set up
 
 ### 1. Clone this repo
