@@ -26,9 +26,9 @@ mqtt.subscribe('queen/dht11_store')
 mqtt.subscribe('queen/distance_store')
 mqtt.subscribe('queen/led/action')
 mqtt.subscribe('queen/led/state')
+
 @mqtt.on_connect()
 def handle_connect(client, userdata, flags, rc):
-
     print("client on server connected",flush=True,file=sys.stderr)
 
 
@@ -156,4 +156,4 @@ def ledStatusShow():
     return render_template('ledStatus.html')
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8080, debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=False)
