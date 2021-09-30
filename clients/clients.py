@@ -149,16 +149,15 @@ ledc.loop_start()
 sensord=mqtt.Client()
 sensord.on_connect=on_connect_sensord
 sensord.on_message=on_message_sensord
-sensord.connect("broker.hivemq.com", 1883, 200)
+sensord.connect("mosquitto", 1883, 200)
 sensord.loop_start()
 
 sensort=mqtt.Client()
 sensort.on_connect=on_connect_sensort
 sensort.on_message=on_message_sensort
-sensort.connect("broker.hivemq.com", 1883, 200)
+sensort.connect("mosquitto", 1883, 200)
 sensort.loop_start()
 
-ledc.publish("test","messageyayaaaaaaa")
 
 
 
