@@ -21,14 +21,14 @@ app.config['MQTT_TLS_ENABLED'] = False
 app.config['MQTT_CLEAN_SESSION'] = True
 mqtt = Mqtt(app)
 
-
+mqtt.subscribe('queen/dht11_error')
+mqtt.subscribe('queen/dht11_store')
+mqtt.subscribe('queen/distance_store')
+mqtt.subscribe('queen/led/action')
+mqtt.subscribe('queen/led/state')
 @mqtt.on_connect()
 def handle_connect(client, userdata, flags, rc):
-    mqtt.subscribe('queen/dht11_error')
-    mqtt.subscribe('queen/dht11_store')
-    mqtt.subscribe('queen/distance_store')
-    mqtt.subscribe('queen/led/action')
-    mqtt.subscribe('queen/led/state')
+
     print("client on server connected",flush=True,file=sys.stderr)
 
 
