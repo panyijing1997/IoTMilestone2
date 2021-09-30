@@ -75,7 +75,7 @@ def store_dht_data(client, userdata, message):
 def store_distance_data(client, userdata, message):
     msg_r=str(message.payload.decode("utf-8"))
     msg_r=json.loads(msg_r)
-    print(msg_r)
+    print(msg_r,flush=True, file=sys.stderr)
     distance=msg_r['dist']
     conn = sqlite3.connect(db_file)
     cur = conn.cursor()
