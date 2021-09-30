@@ -92,6 +92,7 @@ def store_distance_data(client, userdata, message):
 
 @app.route("/")
 def index():
+    print("index", flush=True, file=sys.stderr)
     return render_template('index2.html')
 
 
