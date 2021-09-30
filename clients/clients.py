@@ -117,6 +117,9 @@ def on_connect_sensord(client, userdata, flags, rc):
     print(f"distance measure client Connected with result code {rc}")
     client.subscribe("queen/distance_check")
 
+def on_publish_sensord(client, userdata, mid):
+    print("distance data published")
+
 def on_message_sensord(client, userdata, message):
     print(f"distance sensor receivedd a message")
     GPIO.output(TRIG, True)
@@ -161,7 +164,7 @@ sensort.connect("mosquitto", 1883, 200)
 sensort.loop_start()
 
 
-ledc.publish("test","dadfasdfasdf")
+ledc.publish("test","sdfgdsdfg")
 
 
 print("yayaya")

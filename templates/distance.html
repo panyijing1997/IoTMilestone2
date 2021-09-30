@@ -120,7 +120,6 @@
         var passWord = '';
         var username = '';
         var hostname=location.hostname;
-        console.log(hostname);
         var port = 8883;
         var connected = false;
         var client = new Paho.MQTT.Client(hostname, Number(port), "/mqtt", clientId);

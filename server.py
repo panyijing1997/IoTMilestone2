@@ -37,9 +37,6 @@ def store_dht_data(client, userdata, message):
 
     msg_r=str(message.payload.decode("utf-8"))
     msg_r=json.loads(msg_r)
-
-    mqtt.publish("queen/dht11",json.dumps(msg_r),retain=True) #publish to clients on front end as well to show the data
-
     #store the data
     temperature=msg_r['temperature']
     humidity=msg_r['humidity']
@@ -52,6 +49,7 @@ def store_dht_data(client, userdata, message):
     cur.execute(sql, data)
     conn.commit()
     conn.close()
+    mqtt.publish("queen/dht11", json.dumps(msg_r), retain=True)  # publish to clients on front end as well to show the data
 
 @mqtt.on_topic("queen/dht11_error") #read temp and humidity failed,
 def store_dht_data(client, userdata, message):
@@ -77,8 +75,7 @@ def store_dht_data(client, userdata, message):
 def store_distance_data(client, userdata, message):
     msg_r=str(message.payload.decode("utf-8"))
     msg_r=json.loads(msg_r)
-    mqtt.publish("queen/distance", json.dumps(msg_r),retain=True)
-
+    print(msg_r)
     distance=msg_r['dist']
     conn = sqlite3.connect(db_file)
     cur = conn.cursor()
@@ -88,6 +85,8 @@ def store_distance_data(client, userdata, message):
     cur.execute(sql, data)
     conn.commit()
     conn.close()
+
+    mqtt.publish("queen/distance", json.dumps(msg_r), retain=True)
 
 @app.route("/")
 def index():
@@ -157,4 +156,4 @@ def ledStatusShow():
     return render_template('ledStatus.html')
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8080, debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=False)
