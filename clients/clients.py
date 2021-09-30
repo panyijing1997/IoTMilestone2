@@ -153,6 +153,7 @@ ledc.loop_start()
 
 sensord=mqtt.Client()
 sensord.on_connect=on_connect_sensord
+sensord.on_publish=on_publish_sensord
 sensord.on_message=on_message_sensord
 sensord.connect("mosquitto", 1883, 200)
 sensord.loop_start()
