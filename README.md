@@ -6,7 +6,7 @@ use mosquitto as broker (local docker image)
 ```shell
  $ git clone https://github.com/panyijing1997/IoTMilestone2_mos.git
 ```
-### 2. Build the docker image for the server
+### 2. Build the docker image for the broker
 ```shell
  $ cd IoTMilestone2_mos
  $ cd mqtt
