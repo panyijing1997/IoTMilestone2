@@ -104,13 +104,13 @@ def on_message_sensort(client, userdata, message):
                 'humidity': humidity,
                 'msg': msg
             }
-        client.publish("queen/dht11_store",json.dumps(templateData))
+        client.publish("queen/dht11_store",json.dumps(templateData),1)
     except RuntimeError as error:
-        client.publish("queen/dht11_error", "read_failed")
+        client.publish("queen/dht11_error", "read_failed",1)
         dhtDevice.exit()
 
     except Exception as error:
-        client.publish("queen/dht11_error", "read_failed")
+        client.publish("queen/dht11_error", "read_failed",1)
         dhtDevice.exit()
 
 def on_connect_sensord(client, userdata, flags, rc):
@@ -139,7 +139,7 @@ def on_message_sensord(client, userdata, message):
     templateData = {
         'dist': distance,
     }
-    client.publish("queen/distance_store", json.dumps(templateData))
+    client.publish("queen/distance_store", json.dumps(templateData),1)
 
 
 
