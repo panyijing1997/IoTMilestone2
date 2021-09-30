@@ -112,7 +112,7 @@
         const clientId = 'mqttjs_' + Math.random().toString(16).substr(2, 8)
         var passWord = '';
         var username = '';
-        var hostname='192.168.86.58';
+        var hostname=location.host;
         var port = 8883;
         var connected = false;
         var client = new Paho.MQTT.Client(hostname, Number(port), "/mqtt", clientId);
