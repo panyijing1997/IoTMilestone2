@@ -4,6 +4,7 @@ import sqlite3
 from flask_mqtt import Mqtt
 import json
 import socket
+import sys
 
 db_file = 'IoTMilestone1DB.db'
 
@@ -15,9 +16,9 @@ app.config['MQTT_BROKER_URL'] = "mosquitto"
 app.config['TEMPLATES_AUTO_RELOAD'] = False
 app.config['MQTT_BROKER_PORT'] = 1883
 app.config['MQTT_REFRESH_TIME'] = 1.0  # refresh time in seconds
-app.config['MQTT_KEEPALIVE'] = 5
+app.config['MQTT_KEEPALIVE'] = 60
 app.config['MQTT_TLS_ENABLED'] = False
-app.config['MQTT_CLEAN_SESSION'] = False
+app.config['MQTT_CLEAN_SESSION'] = True
 mqtt = Mqtt(app)
 
 
@@ -28,7 +29,7 @@ def handle_connect(client, userdata, flags, rc):
     mqtt.subscribe('queen/dht11_store')
     mqtt.subscribe('queen/dht11_error')
     mqtt.subscribe('queen/distance_store')
-    print("client on server connected",flush=True)
+    print("client on server connected",flush=True,file=sys.stderr)
 
 
 @mqtt.on_topic("queen/dht11_store") #read temp and humidity succeed, store the data to database
