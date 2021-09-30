@@ -139,8 +139,8 @@ def on_message_sensord(client, userdata, message):
     templateData = {
         'dist': distance,
     }
-    client.publish("queen/distance", json.dumps(templateData), retain=True)
-    client.publish("queen/distance_store", json.dumps(templateData),1)
+    #client.publish("queen/distance", json.dumps(templateData), retain=True)
+    client.publish("queen/distance_store", json.dumps(templateData),1,retain=True)
 
 
 
