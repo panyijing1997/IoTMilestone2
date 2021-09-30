@@ -77,7 +77,6 @@ def store_dht_data(client, userdata, message):
 def store_distance_data(client, userdata, message):
     msg_r=str(message.payload.decode("utf-8"))
     msg_r=json.loads(msg_r)
-    print(msg_r)
     mqtt.publish("queen/distance", json.dumps(msg_r),retain=True)
 
     distance=msg_r['dist']
