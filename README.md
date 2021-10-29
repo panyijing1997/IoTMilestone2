@@ -1,7 +1,8 @@
 # IoTMilestone2
 use mosquitto as broker (local docker image)
 ## Set up
-
+connection of censors:
+https://github.com/panyijing1997/IoTCourseMilestone1
 ### 1. Clone this repo
 ```shell
  $ git clone https://github.com/panyijing1997/IoTMilestone2_mos.git
